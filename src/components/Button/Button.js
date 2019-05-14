@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Button.module.scss';
 
-const Button = ({ children, href, secondary }) => {
+const Button = ({ children, href, secondary, ...props }) => {
     const buttonClass = secondary ? styles.secondary : styles.button;
 
     return (
@@ -20,6 +20,7 @@ const Button = ({ children, href, secondary }) => {
                         <button
                             className={buttonClass}
                             type="submit"
+                            {...props}
                         >
                             {children}
                         </button>

@@ -4,10 +4,11 @@ import ArticlesView from '../ArticlesView/ArticlesView';
 import NotesView from '../NotesView/NotesView';
 import TwittersView from '../TwittersView/TwittersView';
 import Header from '../../Header/Header';
+import Modal from '../../Modal/Modal';
 
 const initialStateItems = [
   {
-    image: 'https://s3.amazonaws.com/uifaces/faces/twitter/renbyrd/128.jpg',
+    image: '../../../assets/images/danabramov.jpg',
     name: 'Dan Abramov',
     description: 'Working on @reactjs. The demo guy.',
     twitterLink: 'https://twitter.com/dan_abramov',
@@ -17,6 +18,7 @@ const initialStateItems = [
 class Root extends React.Component {
   state = {
     items: [...initialStateItems],
+    isModalOpen: false,
   }
 
   addItem = (e) => {
@@ -35,17 +37,32 @@ class Root extends React.Component {
     e.target.reset();
   }
 
+  openModal = () => {
+    this.setState({
+      isModalOpen: true,
+    });
+  }
+
+  closeModal = () => {
+    this.setState({
+      isModalOpen: false,
+    });
+  }
+
   render() {
+    const { isModalOpen } = this.state;
+
     return (
       <BrowserRouter>
         <>
-          <Header />
+          <Header openModalFn={this.openModal} />
           <h1>Hello world</h1>
           <Switch>
             <Route exact path="/" component={TwittersView} />
             <Route path="/articles" component={ArticlesView} />
             <Route path="/notes" component={NotesView} />
           </Switch>
+          {isModalOpen && <Modal closeModalFn={this.closeModal} />}
         </>
       </BrowserRouter>
     );
