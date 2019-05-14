@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../Button/Button';
-import Title from '../../Title/Title';
+import Button from '../Button/Button';
+import Title from '../Title/Title';
 import styles from './ListItem.module.scss';
 
 const ListItem = ({ image, name, description, twitterLink }) => {

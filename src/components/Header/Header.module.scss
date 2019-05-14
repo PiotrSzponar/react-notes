@@ -1,0 +1,15 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  padding: 30px 40px;
+
+  & img {
+    max-width: 10rem;
+    margin: 0 auto;
+  }
+
+  @media only screen and (min-width: 45em) {
+    grid-template-columns: 120px 1fr 100px;
+  }
+}

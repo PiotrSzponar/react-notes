@@ -24,13 +24,14 @@ const Form = ({ submitFn }) => (
             <Input
                 name="image"
                 label="Image"
+                required={false}
             />
             <Input
                 tag="textarea"
                 name="description"
                 label="Description"
             />
-            <Button>add new item</Button>
+            <Button>Add New Item</Button>
         </form>
     </div>
 );
