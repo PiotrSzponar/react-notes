@@ -4,12 +4,12 @@ import Button from '../Button/Button';
 import Title from '../Title/Title';
 import styles from './ListItem.module.scss';
 
-const ListItem = ({ image, title, description, link }) => {
+const ListItem = ({ image, title, description, link, type }) => {
     const ImageTag = image ? 'img' : 'div';
 
     return (
         <li className={styles.wrapper}>
-            {image &&
+            {type === 'social' &&
                 <ImageTag
                     src={image}
                     className={image ? `${styles.image}` : `${styles.imageNone}`}

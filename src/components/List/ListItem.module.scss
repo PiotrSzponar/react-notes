@@ -1,11 +1,18 @@
 .wrapper {
+  text-align: center;
   list-style: none;
   margin: 0;
-  padding: 0 0 40px 0;
+  padding: 0 0 50px 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   position: relative;
   animation: fadeIn 0.5s ease;
+
+  @media only screen and (min-width: 35em) {
+    text-align: left;
+    flex-direction: row;
+  }
 }
 
 .image {
@@ -13,7 +20,11 @@
   height: 150px;
   border-radius: 50%;
   flex-shrink: 0;
-  margin-right: 30px;
+  margin: 20px 0 30px 0;
+
+  @media only screen and (min-width: 35em) {
+    margin: 0 30px 0 0;
+  }
 }
 
 .imageNone {

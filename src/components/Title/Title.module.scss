@@ -1,6 +1,10 @@
 .title {
   color: #ff0266;
   font-weight: 700;
-  padding-right: 40px;
+  padding-right: 0;
   margin: 0;
+
+  @media only screen and (min-width: 35em) {
+    padding-right: 40px;
+  }
 }

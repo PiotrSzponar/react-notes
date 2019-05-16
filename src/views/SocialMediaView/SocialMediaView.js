@@ -5,7 +5,7 @@ import List from '../../components/List/List';
 const SocialMediaView = () => (
     <AppContext.Consumer>
         {(context) => (
-            <List items={context.social} />
+            <List items={context.social} type="social" />
         )}
     </AppContext.Consumer>
 );

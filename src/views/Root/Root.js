@@ -6,12 +6,13 @@ import ArticlesView from '../ArticlesView/ArticlesView';
 import SocialMediaView from '../SocialMediaView/SocialMediaView';
 import Header from '../../components/Header/Header';
 import Modal from '../../components/Modal/Modal';
+import { initialNotes, initialArticles, initialSocials } from '../../demoData';
 
 class Root extends React.Component {
   state = {
-    note: [],
-    article: [],
-    social: [],
+    social: [...initialSocials],
+    article: [...initialArticles],
+    note: [...initialNotes],
     isModalOpen: false,
   }
 
@@ -45,13 +46,13 @@ class Root extends React.Component {
     }
 
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="react/react-note/">
         <AppContext.Provider value={contextElements}>
           <Header openModalFn={this.openModal} />
           <Switch>
-            <Route exact path="/" component={NotesView} />
+            <Route exact path="/" component={SocialMediaView} />
             <Route path="/articles" component={ArticlesView} />
-            <Route path="/social" component={SocialMediaView} />
+            <Route path="/notes" component={NotesView} />
           </Switch>
           {isModalOpen && <Modal closeModalFn={this.closeModal} />}
         </AppContext.Provider>

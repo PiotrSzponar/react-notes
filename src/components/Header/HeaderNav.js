@@ -10,7 +10,7 @@ const HeaderNav = () => (
                     activeClassName={styles.navItemLinkActive}
                     className={styles.navItemLink}
                     to="/">
-                    Notes
+                    Social Media
                 </NavLink>
             </li>
             <li className={styles.navItem}>
@@ -25,8 +25,8 @@ const HeaderNav = () => (
                 <NavLink
                     activeClassName={styles.navItemLinkActive}
                     className={styles.navItemLink}
-                    to="/social">
-                    Social Media
+                    to="/notes">
+                    Notes
                 </NavLink>
             </li>
         </ul>

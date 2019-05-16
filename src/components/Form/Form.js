@@ -7,20 +7,20 @@ import Radio from '../Form/FormRadio';
 import styles from './Form.module.scss';
 
 const types = {
-    note: 'note',
-    article: 'article',
     social: 'social',
+    article: 'article',
+    note: 'note',
 };
 
 const descriptions = {
-    note: 'Note',
-    article: 'Article',
     social: 'Social Media account',
+    article: 'Article',
+    note: 'Note',
 };
 
 class Form extends React.Component {
     state = {
-        type: types.note,
+        type: types.social,
         title: '',
         link: '',
         image: '',
@@ -53,11 +53,11 @@ class Form extends React.Component {
                         >
                             <div className={styles.formOptions}>
                                 <Radio
-                                    id={types.note}
-                                    checked={type === types.note}
-                                    changeFn={() => this.handleRadioChange(types.note)}
+                                    id={types.social}
+                                    checked={type === types.social}
+                                    changeFn={() => this.handleRadioChange(types.social)}
                                 >
-                                    Note
+                                    Social Media
                                 </Radio>
                                 <Radio
                                     id={types.article}
@@ -67,11 +67,11 @@ class Form extends React.Component {
                                     Article
                                 </Radio>
                                 <Radio
-                                    id={types.social}
-                                    checked={type === types.social}
-                                    changeFn={() => this.handleRadioChange(types.social)}
+                                    id={types.note}
+                                    checked={type === types.note}
+                                    changeFn={() => this.handleRadioChange(types.note)}
                                 >
-                                    Social Media
+                                    Note
                                 </Radio>
                             </div>
                             <Input
@@ -80,23 +80,23 @@ class Form extends React.Component {
                                 name="title"
                                 label={type === types.social ? 'Profile name' : 'Title'}
                             />
-                            {type !== types.note ? (
+                            {type !== types.note && (
                                 <Input
                                     onChange={this.handleInputChange}
                                     value={this.state.link}
                                     name="link"
                                     label={type === types.social ? 'Profile link' : 'Link'}
                                 />
-                            ) : null}
-                            {type === types.social ? (
+                            )}
+                            {type === types.social && (
                                 <Input
                                     onChange={this.handleInputChange}
                                     value={this.state.image}
                                     name="image"
-                                    label="Image"
+                                    label="Image (optional)"
                                     required={false}
                                 />
-                            ) : null}
+                            )}
                             <Input
                                 onChange={this.handleInputChange}
                                 value={this.state.description}
